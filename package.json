@@ -1,0 +1,19 @@
+{
+  "name": "care-binder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "家人病历管理 - 飞牛 NAS 部署",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.5.0"
+  }
+}

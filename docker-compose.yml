@@ -1,0 +1,23 @@
+services:
+  care-binder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: care-binder:1.0-arm64
+    container_name: care-binder
+    restart: unless-stopped
+    ports:
+      - "31688:31688"
+    environment:
+      APP_USER: ${APP_USER:-admin}
+      APP_PASSWORD: ${APP_PASSWORD:-change-me-please}
+      SESSION_SECRET: ${SESSION_SECRET:-}
+      TZ: Asia/Shanghai
+    volumes:
+      - /vol1/1000/docker/care-binder/data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:31688/api/health').then(r=>r.ok?process.exit(0):process.exit(1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

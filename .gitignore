@@ -1,0 +1,36 @@
+# 隐私数据：病历文件与数据库，绝不入库
+data/
+cb-demo-data/
+cb-test-*/
+*.db
+*.db-shm
+*.db-wal
+
+# 环境变量（含 APP_PASSWORD）
+.env
+.env.*
+!.env.example
+
+# Go 构建产物
+backend/bin/
+backend/care-binder
+*.exe
+
+# 前端构建产物与依赖
+frontend/dist/
+node_modules/
+
+# 编辑器与系统文件
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 项目元数据（本地记忆，非代码）
+.workbuddy/
+
+# 预览调试截图（非交付物）
+preview-shots/
+
+# 部署打包产物（按需生成，不入库）
+care-binder-deploy.tar.gz
